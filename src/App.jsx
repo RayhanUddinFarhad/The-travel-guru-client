@@ -13,8 +13,9 @@ import "swiper/css/pagination";
 
 
 // import required modules
-import { EffectCoverflow, Pagination } from "swiper";
-import { Link, Outlet } from 'react-router-dom'
+import { EffectCoverflow, Pagination, Navigation } from "swiper";
+import { Link, NavLink, Outlet } from 'react-router-dom'
+import { FaAngleLeft, FaAngleRight, FaArrowLeft, FaArrowRight, FaBackspace } from 'react-icons/fa'
 
 
 
@@ -77,7 +78,11 @@ function App() {
                 slideShadows: true,
               }}
               pagination={true}
-              modules={[EffectCoverflow, Pagination]}
+              navigation={{ 
+                prevEl: '.swiper-button-prev',
+                nextEl: '.swiper-button-next'
+              }}
+              modules={[EffectCoverflow, Pagination, Navigation]}
               className="mySwiper "
             >
 
@@ -91,7 +96,7 @@ function App() {
                   return (
 
                     <SwiperSlide>
-                      <Link to={`category/${category.id}`} className='w-96'>
+                      <NavLink to={`category/${category.id}`} className= "w-96">
 
                       <div className="card-body relative  h-96 image-full">
                         <figure><img className='h-96 ' src={category.image} /></figure>
@@ -101,7 +106,7 @@ function App() {
                         </div>
                       </div>
                       
-                      </Link>
+                      </NavLink>
                     </SwiperSlide>
 
 
@@ -113,6 +118,20 @@ function App() {
                 })
               }
 
+
+<div className='flex space-x-10 justify-center'>
+
+
+<FaAngleLeft className="swiper-button-prev bg-white rounded-full w-16">
+
+  
+</FaAngleLeft>
+  <FaAngleRight className="swiper-button-next bg-white rounded-full w-16" >
+
+
+  </FaAngleRight>
+
+</div>
 
 
 
