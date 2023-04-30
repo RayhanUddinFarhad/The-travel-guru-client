@@ -1,9 +1,71 @@
-import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Form, Link, NavLink } from 'react-router-dom';
 import Navbar from '../Header/Navbar';
 import { FaFacebook, FaGoogle } from 'react-icons/fa';
+import { AuthContext } from '../provider/AuthProvider';
+import { updateProfile } from 'firebase/auth';
 
 const Registration = () => {
+
+
+    const {createUser} = useContext(AuthContext)
+    const [error, setError] = useState ('')
+
+
+
+    const handleSignIn = (e) => {
+        e.preventDefault()
+
+        const form = e.target;
+        const firstname = form.firstname.value;
+        const lastname  = form.secname.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        const confirmpassword = form.confirmpassword.value;
+
+
+
+
+        if (password !== confirmpassword) { 
+
+
+            setError ('Your password Is not matching')
+
+            return
+
+
+
+
+
+        }
+
+        console.log (firstname, lastname, email, password, confirmpassword)
+
+        createUser (email, password)
+        .then (res => {
+
+            const created = res.user;
+
+
+            updateProfile(created, {
+
+                displayName : firstname + ' ' + lastname
+                
+            })
+
+            console.log (created)
+        })
+        .catch (err => {
+
+            console.log (err)
+         })
+
+         form.reset()
+
+
+    }
+
+
     return (
         <div>
 
@@ -20,29 +82,32 @@ const Registration = () => {
 
               
 <div className=" card  w-full max-w-sm shadow-2xl bg-base-100 mx-auto items-center">
-    <div className="card-body">
+    <Form onSubmit={handleSignIn} className="card-body">
 
-        <h1 className='text-3xl text-left'>LogIn</h1>
+        <h1 className='text-3xl text-left'>Create an account</h1>
+
+
+        <p>{error}</p>
         <div className="form-control">
             <label className="label">
                 <span className="label-text">First Name</span>
             </label>
-            <input type="text" placeholder="name" className="input input-bordered" />
+            <input required type="text" name='firstname' placeholder="name" className="input input-bordered" />
         </div>
 
         <div className="form-control">
             <label className="label">
                 <span className="label-text">Last Name</span>
             </label>
-            <input type="text" placeholder="name" className="input input-bordered" />
+            <input required name='secname' type="text" placeholder="name" className="input input-bordered" />
         </div>
 
 
         <div className="form-control">
             <label className="label">
-                <span className="label-text">Email or username</span>
+                <span  className="label-text">Email or username</span>
             </label>
-            <input type="text" placeholder="name" className="input input-bordered" />
+            <input required name='email' type="text" placeholder="Email or username" className="input input-bordered" />
         </div>
 
 
@@ -50,7 +115,7 @@ const Registration = () => {
             <label className="label">
                 <span className="label-text">Password</span>
             </label>
-            <input type="text" placeholder="name" className="input input-bordered" />
+            <input required name='password' type="text" placeholder="password" className="input input-bordered" />
         </div>
 
         
@@ -60,7 +125,7 @@ const Registration = () => {
             <label className="label">
                 <span className="label-text">Confirm Password</span>
             </label>
-            <input type="text" placeholder="name" className="input input-bordered" />
+            <input name='confirmpassword' type="text" placeholder="Confirm Password" className="input input-bordered" />
             <label className="label">
                 <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
             </label>
@@ -70,7 +135,7 @@ const Registration = () => {
         </div>
 
         <p>Already have an account? <Link to = "/logIn" className='btn-link'>Log In</Link></p>
-    </div>
+    </Form>
 </div>
 
 <div className='mt-10 space-y-3'>

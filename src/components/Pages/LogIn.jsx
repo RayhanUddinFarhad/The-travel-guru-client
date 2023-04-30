@@ -1,9 +1,64 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Navbar from '../Header/Navbar';
-import { Link } from 'react-router-dom';
+import { Form, Link } from 'react-router-dom';
 import { FaFacebook, FaGoogle } from 'react-icons/fa';
+import { AuthContext } from '../provider/AuthProvider';
+import { GoogleAuthProvider } from 'firebase/auth';
 
 const LogIn = () => {
+
+    const {googleSignIn, logIn} = useContext(AuthContext)
+
+
+    const handleGoogleSignIn = () => {
+
+        googleSignIn()
+        .then ((result) => {
+
+            const credential = GoogleAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
+    // The signed-in user info.
+    const user = result.user;
+
+
+         })
+         .catch (err => { 
+
+            console.log (err);
+         })
+
+
+
+    }
+
+    const handleLogIn = (e) => {
+        e.preventDefault();
+
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        logIn (email, password)
+        .then ((currentuser) => { 
+
+
+            const logged = currentuser.user
+        })
+        .catch (err => { 
+
+            console.log (err);
+        })
+
+
+
+
+
+
+    }
+
+
+
+
     return (
         <div>
             <Navbar></Navbar>
@@ -14,20 +69,20 @@ const LogIn = () => {
 
               
                         <div className=" card  w-full max-w-sm shadow-2xl bg-base-100 mx-auto items-center">
-                            <div className="card-body">
+                            <Form onSubmit={handleLogIn} className="card-body">
 
                                 <h1 className='text-3xl text-left'>LogIn</h1>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Email</span>
                                     </label>
-                                    <input type="text" placeholder="email" className="input input-bordered" />
+                                    <input name='email' type="text" placeholder="email" className="input input-bordered" />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Password</span>
                                     </label>
-                                    <input type="text" placeholder="password" className="input input-bordered" />
+                                    <input name='password' type="text" placeholder="password" className="input input-bordered" />
                                     <label className="label">
                                         <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                     </label>
@@ -37,7 +92,7 @@ const LogIn = () => {
                                 </div>
 
                                 <p>Don't have an account? <Link to = "/register" className='btn-link'>Register</Link></p>
-                            </div>
+                            </Form>
                         </div>
 
                         <div className='mt-10 space-y-3'>
@@ -49,7 +104,7 @@ const LogIn = () => {
                         <button className='flex justify-center items-center border border-gray-400 rounded-full w-96 mx-auto'>
                             <FaFacebook className='mr-3 text-indigo-500'/>Continue with facebook
                         </button>
-                        <button className='flex justify-center items-center border border-gray-400 rounded-full w-96 mx-auto'>
+                        <button  onClick={handleGoogleSignIn} className='flex justify-center items-center border border-gray-400 rounded-full w-96 mx-auto'>
                             <FaGoogle className='mr-3 '/>Continue with Google
                         </button>
 
