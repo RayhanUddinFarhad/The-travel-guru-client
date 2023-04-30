@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from '../Header/Navbar';
 import Category from '../Header/Category/Category';
 import Datepicker from "tailwind-datepicker-react"
-import { Outlet } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 
 
 const Booking = () => {
@@ -67,7 +67,7 @@ const Booking = () => {
 
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn btn-warning">Start Booking</button>
+                                <Link to= '/bookingArea'><button className="btn btn-warning">Start Booking</button></Link>
                             </div>
                         </div>
 

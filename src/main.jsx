@@ -12,6 +12,8 @@ import BookingCatDetails from './components/Shared/BookingCatDetails.jsx';
 import LogIn from './components/Pages/LogIn.jsx';
 import Registration from './components/Pages/Registration.jsx';
 import AuthProvider from './components/provider/AuthProvider.jsx';
+import HotelList from './components/Pages/HotelList.jsx';
+import PrivateRouter from './components/provider/PrivateRouter.jsx';
 
 const router = createBrowserRouter([
   {
@@ -60,6 +62,14 @@ const router = createBrowserRouter([
 
     path : "/register",
     element : <Registration></Registration>
+  },
+
+  {
+
+
+    path : "/bookingArea",
+
+    element : <PrivateRouter><HotelList></HotelList></PrivateRouter>
   }
 
 
