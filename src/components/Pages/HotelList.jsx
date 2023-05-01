@@ -13,7 +13,13 @@ const HotelList = () => {
 
     return (
         <div>
+
+            <div className='text-black'>
+
+
             <Navbar></Navbar>
+
+            </div>
             
            <div className='flex justify-around my-5'>
 

@@ -17,7 +17,7 @@ const Booking = () => {
     return (
         <div>
 
-            <Navbar></Navbar>
+           
 
 
 
@@ -33,6 +33,13 @@ const Booking = () => {
 
 
                 </div>
+
+                <div className='mb-auto text-white'>
+
+
+<Navbar></Navbar>
+
+</div>
 
 
 

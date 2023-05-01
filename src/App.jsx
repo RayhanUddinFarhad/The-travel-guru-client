@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -24,6 +24,8 @@ import { FaAngleLeft, FaAngleRight, FaArrowLeft, FaArrowRight, FaBackspace } fro
 function App() {
   const [category, setCategory] = useState([])
 
+  
+
   useEffect(() => {
 
     fetch(`https://travel-guru-server-rayhanuddinfarhad.vercel.app/category`)
@@ -33,6 +35,18 @@ function App() {
 
 
   }, [])
+
+
+
+  const [nav1, setNav1] = useState(null);
+  const [nav2, setNav2] = useState(null);
+  const slider1 = useRef(null);
+  const slider2 = useRef(null);
+
+  useEffect(() => {
+    setNav1(slider1.current);
+    setNav2(slider2.current);
+  }, []);
 
   return (
     <div>
@@ -44,7 +58,11 @@ function App() {
 
 
 
-      <div className="hero min-h-screen" style={{ backgroundImage: `url("https://i.ibb.co/C8YHkTh/Rectangle-1.png")` }}>
+      <div className="hero  min-h-screen" style={{ 
+    backgroundImage: `url("https://i.ibb.co/C8YHkTh/Rectangle-1.png")`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center'
+}}>
 
 
 

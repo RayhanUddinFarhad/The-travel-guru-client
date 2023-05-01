@@ -30,9 +30,9 @@ const Navbar = () => {
 
 
     return (
-        <div className='text-white'>
+        <div className=''>
 
-            <div className="navbar text-white">
+            <div className="navbar ">
                 <div className="navbar-start text-white">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -51,7 +51,7 @@ const Navbar = () => {
 
 
 
-                    <div className="form-control ml-10">
+                    <div className="form-control ml-10 hidden lg:block">
                         <div className="input-group">
                             <input type="text" placeholder="Search…" className="input bg-transparent outline" />
                             <button className="btn btn-outline text-white">
@@ -62,7 +62,7 @@ const Navbar = () => {
 
                 </div>
                 <div className="navbar-center hidden lg:flex ml-32">
-                    <ul className="menu menu-horizontal px-6 text-white">
+                    <ul className="menu menu-horizontal px-6 text-base">
                         <li><a>News</a></li>
 
                         <li><a>Destination</a></li>
