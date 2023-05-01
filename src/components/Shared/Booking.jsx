@@ -45,7 +45,7 @@ const Booking = () => {
                             <Outlet></Outlet>
                         </div>
 
-                        <div className='card bg-white w-96 h-96'>
+                        {/* <div className='card bg-white w-96 h-96'>
 
                             <div className="form-control">
                                 <label className="label">
@@ -70,7 +70,7 @@ const Booking = () => {
                                 <Link to= '/bookingArea'><button className="btn btn-warning">Start Booking</button></Link>
                             </div>
                         </div>
-
+ */}
 
 
                     </div>

@@ -36,7 +36,11 @@ const router = createBrowserRouter([
   {
 
     path : "booking",
-    element : <Booking></Booking>,
+    element : <Booking></Booking>
+
+    
+    
+    ,
 
 
     children : [ {
@@ -67,9 +71,11 @@ const router = createBrowserRouter([
   {
 
 
-    path : "/bookingArea",
+    path : "/hotels/:id",
 
-    element : <PrivateRouter><HotelList></HotelList></PrivateRouter>
+    element : <PrivateRouter><HotelList></HotelList></PrivateRouter>,
+    loader : ({params}) => fetch (`https://travel-guru-server-rayhanuddinfarhad.vercel.app/hotels/${params.id}`)
+
   }
 
 
@@ -77,7 +83,5 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
     <AuthProvider><RouterProvider router={router} /></AuthProvider>
-  </React.StrictMode>,
 )
