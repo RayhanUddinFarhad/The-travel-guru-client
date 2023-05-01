@@ -18,10 +18,23 @@ import PrivateRouter from './components/provider/PrivateRouter.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App></App>,
+    element: <App></App>
+    
+    ,
 
 
-    children : [ {
+    children : [ 
+
+      {
+
+        path : "/",
+        element : <Category></Category>,
+       loader : ({params}) => fetch (`https://travel-guru-server-rayhanuddinfarhad.vercel.app/category/1`)
+
+      },
+      
+      
+      {
 
       path : 'category/:id',
       element : <Category></Category>,

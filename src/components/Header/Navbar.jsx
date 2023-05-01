@@ -61,9 +61,9 @@ const Navbar = () => {
                     </div>
 
                 </div>
-                <div className="navbar-center hidden lg:flex ml-32">
+                <div className="navbar-center hidden lg:flex ml-32 items-center">
                     <ul className="menu menu-horizontal px-6 text-base">
-                        <li><a>News</a></li>
+                        <li><Link to = '/'>Home</Link></li>
 
                         <li><a>Destination</a></li>
                         <li><a>Blog</a></li>
@@ -71,7 +71,7 @@ const Navbar = () => {
                         <li><a>Contracts</a></li>
                     </ul>
                 </div>
-                <div className="navbar-center">
+                <div className="navbar-center space-x-5 items-center">
                     <p>{user && user.displayName}</p>
 
                     {

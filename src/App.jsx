@@ -152,7 +152,7 @@ function App() {
               }
 
 
-              <div className='flex space-x-10 justify-center'>
+              {/* <div className='flex space-x-10 justify-center'>
 
 
                 <FaAngleLeft className="swiper-button-prev bg-white rounded-full w-16">
@@ -164,7 +164,7 @@ function App() {
 
                 </FaAngleRight>
 
-              </div>
+              </div> */}
 
 
 

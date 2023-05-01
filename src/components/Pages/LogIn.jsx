@@ -24,6 +24,8 @@ const LogIn = () => {
                 const token = credential.accessToken;
                 // The signed-in user info.
                 const user = result.user;
+                navigate(from, { replace: true });
+
 
 
 
@@ -109,10 +111,10 @@ const LogIn = () => {
 
                     <p>Or</p>
 
-                    <button className='flex justify-center items-center border border-gray-400 rounded-full w-96 mx-auto'>
+                    <button className='flex justify-center items-center border border-gray-400 rounded-full w-96 mx-auto p-2'>
                         <FaFacebook className='mr-3 text-indigo-500' />Continue with facebook
                     </button>
-                    <button onClick={handleGoogleSignIn} className='flex justify-center items-center border border-gray-400 rounded-full w-96 mx-auto'>
+                    <button onClick={handleGoogleSignIn} className='flex justify-center items-center border border-gray-400 rounded-full w-96 mx-auto p-2'>
                         <FaGoogle className='mr-3 ' />Continue with Google
                     </button>
 

@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Form, Link, NavLink } from 'react-router-dom';
+import { Form, Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import Navbar from '../Header/Navbar';
 import { FaFacebook, FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../provider/AuthProvider';
@@ -10,6 +10,12 @@ const Registration = () => {
 
     const {createUser} = useContext(AuthContext)
     const [error, setError] = useState ('')
+    let navigate = useNavigate();
+    let location = useLocation();
+
+    let from = location.state?.from?.pathname || "/";
+
+
 
 
 
@@ -54,6 +60,10 @@ const Registration = () => {
             })
 
             console.log (created)
+
+
+            navigate(from, { replace: true });
+
         })
         .catch (err => {
 
@@ -144,10 +154,10 @@ const Registration = () => {
 
 <p>Or</p>
 
-<button className='flex justify-center items-center border border-gray-400 rounded-full w-96 mx-auto'>
+<button className='flex justify-center items-center border border-gray-400 rounded-full w-96 mx-auto p-2'>
     <FaFacebook className='mr-3 text-indigo-500'/>Continue with facebook
 </button>
-<button className='flex justify-center items-center border border-gray-400 rounded-full w-96 mx-auto'>
+<button className='flex justify-center items-center border border-gray-400 rounded-full w-96 mx-auto p-2'>
     <FaGoogle className='mr-3 '/>Continue with Google
 </button>
 
