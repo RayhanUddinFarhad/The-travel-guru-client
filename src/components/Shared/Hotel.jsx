@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaStar } from 'react-icons/fa';
+import { AuthContext } from '../provider/AuthProvider';
 
 const Hotel = ({data}) => {
+
+    const {getDate} = useContext(AuthContext)
+
+    console.log (getDate)
 
 
 
@@ -11,7 +16,7 @@ const Hotel = ({data}) => {
 
                 data.map (hotel => {
 
-                    return (<div className="card card-side bg-base-100 shadow-xl">
+                    return (<div className="card card-side bg-base-100 shadow-xl my-5">
                     <figure><img className='w-64 h-48' src={hotel.image} alt="Movie" /></figure>
                     <div className="card-body">
                         <h2 className="card-title">{hotel.name}</h2>

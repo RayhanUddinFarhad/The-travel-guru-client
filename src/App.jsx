@@ -38,11 +38,17 @@ function App() {
     <div>
 
 
-      <Navbar></Navbar>
+
+
+
 
 
 
       <div className="hero min-h-screen" style={{ backgroundImage: `url("https://i.ibb.co/C8YHkTh/Rectangle-1.png")` }}>
+
+
+
+
 
         <div className='hero-overlay bg-black bg-opacity-75'>
 
@@ -54,6 +60,15 @@ function App() {
 
 
         </div>
+        <div className='mb-auto text-white'>
+
+
+        <Navbar></Navbar>
+
+        </div>
+
+        
+
 
 
         <div className="hero-content flex-col lg:flex-row w-full">
@@ -78,7 +93,7 @@ function App() {
                 slideShadows: true,
               }}
               pagination={true}
-              navigation={{ 
+              navigation={{
                 prevEl: '.swiper-button-prev',
                 nextEl: '.swiper-button-next'
               }}
@@ -96,16 +111,16 @@ function App() {
                   return (
 
                     <SwiperSlide>
-                      <NavLink to={`category/${category.id}`} className= "w-96">
+                      <NavLink to={`category/${category.id}`} className="w-96">
 
-                      <div className="card-body relative  h-96 image-full">
-                        <figure><img className='h-96 ' src={category.image} /></figure>
-                        <div className="relative card-body">
-                          <h2 className="card-title absolute bottom-10 left-0">{category.name}</h2>
+                        <div className="card-body relative  h-96 image-full">
+                          <figure><img className='h-96 ' src={category.image} /></figure>
+                          <div className="relative card-body">
+                            <h2 className="card-title absolute bottom-10 left-0">{category.name}</h2>
 
+                          </div>
                         </div>
-                      </div>
-                      
+
                       </NavLink>
                     </SwiperSlide>
 
@@ -119,19 +134,19 @@ function App() {
               }
 
 
-<div className='flex space-x-10 justify-center'>
+              <div className='flex space-x-10 justify-center'>
 
 
-<FaAngleLeft className="swiper-button-prev bg-white rounded-full w-16">
-
-  
-</FaAngleLeft>
-  <FaAngleRight className="swiper-button-next bg-white rounded-full w-16" >
+                <FaAngleLeft className="swiper-button-prev bg-white rounded-full w-16">
 
 
-  </FaAngleRight>
+                </FaAngleLeft>
+                <FaAngleRight className="swiper-button-next bg-white rounded-full w-16" >
 
-</div>
+
+                </FaAngleRight>
+
+              </div>
 
 
 

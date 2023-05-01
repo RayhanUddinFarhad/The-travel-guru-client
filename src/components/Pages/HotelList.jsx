@@ -15,7 +15,7 @@ const HotelList = () => {
         <div>
             <Navbar></Navbar>
             
-           <div className='flex justify-between'>
+           <div className='flex justify-around my-5'>
 
             <div>
                 {

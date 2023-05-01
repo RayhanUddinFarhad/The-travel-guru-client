@@ -12,9 +12,11 @@ const provider = new GoogleAuthProvider();
 
 
 
+
 const AuthProvider = ({children}) => {
 
     const [user, setUser] = useState([])
+    const [date, setDate] = useState  (null)
 
 
 
@@ -25,6 +27,15 @@ const AuthProvider = ({children}) => {
 
 
         
+    }
+
+
+    const getDate = (startdate, enddate) => { 
+
+        setDate (startdate, enddate)
+
+
+
     }
 
     const logOut = () => {
@@ -68,7 +79,8 @@ const AuthProvider = ({children}) => {
         user,
         createUser,
         logOut,
-        logIn
+        logIn,
+        getDate
     }
 
 
